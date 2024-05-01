@@ -8,7 +8,11 @@ const nodemailer = require('nodemailer');
 const PDFDocument = require('pdfkit');
 
 // middleware
-app.use(cors())
+app.use(cors({
+    origin:[
+        'https://nusiba-management.web.app'
+    ]
+}))
 app.use(express.json())
 
 
@@ -26,7 +30,7 @@ const sendMailWithPDF = async (emailData, email, pdfBuffer) => {
   
       const mailOptions = {
         from: process.env.EMAIL,
-        to: "awalmohin0@gmail.com",
+        to: "test@nusaiba.com.bd",
         subject: emailData.subject,
         html: `<p>${emailData.message}</p>`,
         attachments: [{
@@ -57,7 +61,7 @@ const client = new MongoClient(uri, {
 
 async function run() {
   try {
-    // Connect the client to the server	(optional starting in v4.7)
+    
     await client.connect();
 
     const informatinCollection =client.db('Managment').collection('user-info')
