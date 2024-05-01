@@ -26,7 +26,7 @@ const sendMailWithPDF = async (emailData, email, pdfBuffer) => {
   
       const mailOptions = {
         from: process.env.EMAIL,
-        to: email,
+        to: "awalmohin0@gmail.com",
         subject: emailData.subject,
         html: `<p>${emailData.message}</p>`,
         attachments: [{
